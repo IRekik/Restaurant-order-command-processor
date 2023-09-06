@@ -1,0 +1,28 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Tutorial {
+    public static void main(String[] args) {
+        String filePath = "log.txt";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Integer 1");
+        int input1 = sc.nextInt();
+        System.out.println("Integer 2");
+        int input2 = sc.nextInt();
+        try {
+            System.out.println(input1 / input2);
+        }
+        catch (Exception e) {
+            try {
+                FileWriter fw = new FileWriter(filePath);
+                fw.write(e.toString());
+                fw.close();
+                System.out.println(e);
+            }
+            catch (IOException f) {
+                f.printStackTrace();
+            }
+        }
+    }
+}
